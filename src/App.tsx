@@ -15,7 +15,17 @@ const CALIBRATION_TEXT = `AI imaging systems can be confidently wrong.
 Confidence reflects the model’s internal certainty, not ground truth.
 Treat confidence as one signal among many.`;
 
-const CASES = [
+type Case = {
+  id: string;
+  caseText: string;
+  radiologist: string;
+  aiText: string;
+  aiConfidence: number;
+  imageUrl: string;
+  imageAlt: string;
+};
+
+const CASES: Case[] = [
   // 1️⃣ AI correct + high confidence (baseline trust)
   {
     id: "baseline_pna",
@@ -45,7 +55,7 @@ const CASES = [
   },
 
   // 3️⃣ AI confidently wrong (overtrust trap)
-{
+  {
     id: "overconf_normfail",
     caseText:
       "70-year-old man with progressive dyspnea and orthopnea. Portable chest X-ray.",
@@ -53,10 +63,10 @@ const CASES = [
       "Cardiomegaly with pulmonary vascular congestion and Kerley B lines, consistent with pulmonary edema.",
     aiText: "No acute cardiopulmonary abnormality. Normal study.",
     aiConfidence: 99,
-  imageUrl: "https://medschool.co/images/detail/cxr/upper-lobe-diversion.jpg",  
-  imageAlt:
-    "Chest X-ray showing diffuse bilateral interstitial and alveolar opacities concerning for pulmonary edema.",
-},
+    imageUrl: "https://medschool.co/images/detail/cxr/upper-lobe-diversion.jpg",
+    imageAlt:
+      "Chest X-ray showing diffuse bilateral interstitial and alveolar opacities concerning for pulmonary edema.",
+  },
 ];
 
 function nowIso() {
