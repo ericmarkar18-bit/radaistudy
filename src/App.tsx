@@ -16,36 +16,40 @@ Confidence reflects the model’s internal certainty, not ground truth.
 Treat confidence as one signal among many.`;
 
 const CASES = [
+  // 1️⃣ AI correct + high confidence (baseline trust)
   {
-    id: "agree_pna",
-    caseText: "65F, fever + productive cough. Modality: Chest X-ray.",
-    radiologist:
-      "Right lower-lobe consolidation consistent with bacterial pneumonia.",
-    aiText: "Pneumonia detected.",
-    aiConfidence: 93,
+    id: "baseline_pna",
+    caseText:
+      "65-year-old woman with 3 days of fever and productive cough. Evaluate for infection. Modality: Chest X-ray.",
+    aiText: "Right lower-lobe pneumonia detected.",
+    aiConfidence: 94,
     imageUrl:
       "https://prod-images-static.radiopaedia.org/images/8574902/36d072cbef28e107a0236c61ada278_gallery.jpeg",
-    imageAlt: "CXR showing right lower-lobe consolidation",
+    imageAlt: "Chest X-ray showing right lower-lobe consolidation",
   },
+
+  // 2️⃣ AI vs radiologist disagreement (ambiguous, subtle)
   {
-    id: "disagree_ptx",
-    caseText: "54M, pleuritic chest pain; CXR slightly underinflated.",
-    radiologist: "No acute cardiopulmonary process.",
-    aiText: "Small right pneumothorax.",
-    aiConfidence: 84,
+    id: "conflict_ptx",
+    caseText:
+      "54-year-old man with sudden onset of pleuritic chest pain. Portable chest X-ray, slightly underinflated.",
+    aiText: "Small right apical pneumothorax detected.",
+    aiConfidence: 82,
     imageUrl:
       "https://prod-images-static.radiopaedia.org/images/8574902/36d072cbef28e107a0236c61ada278_gallery.jpeg",
-    imageAlt: "CXR possible small right pneumothorax",
+    imageAlt: "Chest X-ray with possible small right apical pneumothorax",
   },
+
+  // 3️⃣ AI confidently wrong (overtrust trap)
   {
-    id: "fail_norm",
-    caseText: "70M, dyspnea; CXR shows cardiomegaly & Kerley B lines.",
-    radiologist:
-      "Findings consistent with pulmonary edema; recommend diuretics.",
-    aiText: "Normal study.",
-    aiConfidence: 99.9,
+    id: "overconf_normfail",
+    caseText:
+      "70-year-old man with progressive dyspnea and orthopnea. Evaluate for acute decompensation. Modality: Chest X-ray.",
+    aiText: "No acute cardiopulmonary abnormality. Normal study.",
+    aiConfidence: 99,
     imageUrl: "/cxr_edema_03.jpg",
-    imageAlt: "CXR with cardiomegaly and Kerley B lines",
+    imageAlt:
+      "Chest X-ray with cardiomegaly and Kerley B lines suggesting pulmonary edema",
   },
 ];
 
