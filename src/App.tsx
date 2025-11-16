@@ -47,7 +47,7 @@ const CASES = [
     "70-year-old man with progressive dyspnea and orthopnea. Portable chest X-ray.",
   aiText: "No acute cardiopulmonary abnormality. Normal study.",
   aiConfidence: 99,
-  imageUrl: "https://prod-images-static.radiopaedia.org/images/28958034/4cf530f26a51a9a1c518e848337e5c_big_gallery.jpeg",  // whatever filename you upload
+  imageUrl: "https://medschool.co/images/detail/cxr/upper-lobe-diversion.jpg",  
   imageAlt:
     "Chest X-ray showing diffuse bilateral interstitial and alveolar opacities concerning for pulmonary edema.",
 },
