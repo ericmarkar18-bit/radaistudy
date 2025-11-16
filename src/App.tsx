@@ -20,7 +20,9 @@ const CASES = [
   {
     id: "baseline_pna",
     caseText:
-      "65-year-old woman with 3 days of fever and productive cough. Evaluate for infection. Modality: Chest X-ray.",
+      "65-year-old woman with 3 days of fever and productive cough. Modality: Chest X-ray.",
+    radiologist:
+      "Right lower-lobe airspace opacity consistent with community-acquired pneumonia.",
     aiText: "Right lower-lobe pneumonia detected.",
     aiConfidence: 94,
     imageUrl:
@@ -32,7 +34,9 @@ const CASES = [
   {
     id: "conflict_ptx",
     caseText:
-      "54-year-old man with sudden onset of pleuritic chest pain. Portable chest X-ray, slightly underinflated.",
+      "54-year-old man with sudden pleuritic chest pain. Portable chest X-ray, slightly underinflated.",
+    radiologist:
+      "No definite acute cardiopulmonary abnormality. Recommend follow-up if symptoms persist.",
     aiText: "Small right apical pneumothorax detected.",
     aiConfidence: 82,
     imageUrl:
@@ -42,11 +46,13 @@ const CASES = [
 
   // 3️⃣ AI confidently wrong (overtrust trap)
 {
-  id: "overconf_normfail",
-  caseText:
-    "70-year-old man with progressive dyspnea and orthopnea. Portable chest X-ray.",
-  aiText: "No acute cardiopulmonary abnormality. Normal study.",
-  aiConfidence: 99,
+    id: "overconf_normfail",
+    caseText:
+      "70-year-old man with progressive dyspnea and orthopnea. Portable chest X-ray.",
+    radiologist:
+      "Cardiomegaly with pulmonary vascular congestion and Kerley B lines, consistent with pulmonary edema.",
+    aiText: "No acute cardiopulmonary abnormality. Normal study.",
+    aiConfidence: 99,
   imageUrl: "https://medschool.co/images/detail/cxr/upper-lobe-diversion.jpg",  
   imageAlt:
     "Chest X-ray showing diffuse bilateral interstitial and alveolar opacities concerning for pulmonary edema.",
