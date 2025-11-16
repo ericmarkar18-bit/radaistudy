@@ -63,7 +63,7 @@ const CASES: Case[] = [
       "Cardiomegaly with pulmonary vascular congestion and Kerley B lines, consistent with pulmonary edema.",
     aiText: "No acute cardiopulmonary abnormality. Normal study.",
     aiConfidence: 99,
-    imageUrl: "https://medschool.co/images/detail/cxr/upper-lobe-diversion.jpg",
+    imageUrl: "https://prod-images-static.radiopaedia.org/images/1564322/e0fdf80eb6c7565a88b3650cfde94d_gallery.jpg",
     imageAlt:
       "Chest X-ray showing diffuse bilateral interstitial and alveolar opacities concerning for pulmonary edema.",
   },
