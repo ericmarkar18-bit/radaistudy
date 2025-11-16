@@ -111,9 +111,8 @@ async function logToSheet(entry: any) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(entry),
-      mode: "no-cors", // 👈 important for Apps Script
+      mode: "no-cors", // 👈 critical for Apps Script
     });
-    // You won’t be able to read the response in no-cors mode, but that's fine.
   } catch (e) {
     console.error("Sheet log failed:", e);
   }
