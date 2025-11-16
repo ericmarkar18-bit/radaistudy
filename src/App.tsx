@@ -41,16 +41,16 @@ const CASES = [
   },
 
   // 3️⃣ AI confidently wrong (overtrust trap)
-  {
-    id: "overconf_normfail",
-    caseText:
-      "70-year-old man with progressive dyspnea and orthopnea. Evaluate for acute decompensation. Modality: Chest X-ray.",
-    aiText: "No acute cardiopulmonary abnormality. Normal study.",
-    aiConfidence: 99,
-    imageUrl: "/cxr_edema_03.jpg",
-    imageAlt:
-      "Chest X-ray with cardiomegaly and Kerley B lines suggesting pulmonary edema",
-  },
+{
+  id: "overconf_normfail",
+  caseText:
+    "70-year-old man with progressive dyspnea and orthopnea. Portable chest X-ray.",
+  aiText: "No acute cardiopulmonary abnormality. Normal study.",
+  aiConfidence: 99,
+  imageUrl: "https://prod-images-static.radiopaedia.org/images/1564322/e0fdf80eb6c7565a88b3650cfde94d_big_gallery.jpg",  // whatever filename you upload
+  imageAlt:
+    "Chest X-ray showing diffuse bilateral interstitial and alveolar opacities concerning for pulmonary edema.",
+},
 ];
 
 function nowIso() {
