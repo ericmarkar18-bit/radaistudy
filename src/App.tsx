@@ -104,22 +104,20 @@ export default function App() {
     return keywords.length > 0 && hits === 0;
   }
 
-  async function logToSheet(entry: any) {
-    if (!SHEET_WEBAPP_URL) return;
-    try {
-      const res = await fetch(SHEET_WEBAPP_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(entry),
-        mode: "cors",
-      });
-      // Debug (optional): console.log(await res.text());
-      await res.text();
-    } catch (e) {
-      console.error("Sheet log failed:", e);
-    }
+async function logToSheet(entry: any) {
+  if (!SHEET_WEBAPP_URL) return;
+  try {
+    await fetch(SHEET_WEBAPP_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(entry),
+      mode: "no-cors", // 👈 important for Apps Script
+    });
+    // You won’t be able to read the response in no-cors mode, but that's fine.
+  } catch (e) {
+    console.error("Sheet log failed:", e);
   }
-
+}
   function next() {
     const entry = {
       pid,
