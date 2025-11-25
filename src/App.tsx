@@ -31,7 +31,7 @@ const CASES: Case[] = [
   // ============================
 
   {
-    id: "tp_pna_1",
+    id: "TP_PNEUMO",
     caseText:
       "63-year-old woman with fever, productive cough, and chills. Chest X-ray.",
     radiologist:
@@ -44,7 +44,7 @@ const CASES: Case[] = [
   },
 
   {
-    id: "tp_effusion_1",
+    id: "TP_EFFUSION",
     caseText:
       "72-year-old man with shortness of breath and orthopnea. Chest X-ray.",
     radiologist:
@@ -52,12 +52,12 @@ const CASES: Case[] = [
     aiText: "Right-sided pleural effusion detected.",
     aiConfidence: 91,
     imageUrl:
-      "https://prod-images-static.radiopaedia.org/images/16243336/52e886bb4f60450becf15761f8cb2432_gallery.webp",
+      "https://prod-images-static.radiopaedia.org/images/64546527/eaf6d34649b5780b7e5b65d907ccb1e9394e8d195987dc4f227130176adef6ef_big_gallery.jpeg",
     imageAlt: "Chest X-ray showing right pleural effusion.",
   },
 
   {
-    id: "tp_ptx_1",
+    id: "TP_THORAX",
     caseText:
       "45-year-old male with sudden pleuritic chest pain after exertion.",
     radiologist:
@@ -65,12 +65,12 @@ const CASES: Case[] = [
     aiText: "Small left apical pneumothorax detected.",
     aiConfidence: 88,
     imageUrl:
-      "https://prod-images-static.radiopaedia.org/images/3489275/b43c832295b39c2f5edc04ca5c07e670_gallery.jpeg",
+      "https://prod-images-static.radiopaedia.org/images/4625564/a235a7b4829fe0db851d8733e535e6_big_gallery.JPG",
     imageAlt: "Chest X-ray showing small left apical pneumothorax.",
   },
 
   {
-    id: "tp_edema_1",
+    id: "TP_EDEMA",
     caseText:
       "78-year-old man with progressive dyspnea and leg swelling. Chest X-ray.",
     radiologist:
@@ -83,7 +83,7 @@ const CASES: Case[] = [
   },
 
   {
-    id: "tp_cardiomegaly_1",
+    id: "TP_CARDIOMEGALY",
     caseText:
       "67-year-old woman with hypertension and exertional dyspnea.",
     radiologist:
@@ -91,7 +91,7 @@ const CASES: Case[] = [
     aiText: "Cardiomegaly detected.",
     aiConfidence: 90,
     imageUrl:
-      "https://prod-images-static.radiopaedia.org/images/6378413/7e2afad24d7dd09b82077402caf88863_gallery.jpeg",
+      "https://prod-images-static.radiopaedia.org/images/1420387/6f63736ff837ff7c5a736b35aba6ab_big_gallery.jpeg",
     imageAlt: "Chest X-ray showing cardiomegaly.",
   },
 
@@ -100,26 +100,26 @@ const CASES: Case[] = [
   // ============================
 
   {
-    id: "fp_ptx_1",
+    id: "FP_NORMAL",
     caseText:
       "40-year-old man with sharp chest pain after coughing. Chest X-ray.",
     radiologist: "No acute cardiopulmonary abnormality.",
     aiText: "Small right apical pneumothorax detected.",
     aiConfidence: 82,
     imageUrl:
-      "https://prod-images-static.radiopaedia.org/images/172061/5f2d6561d80f38c90fbf36a458f64c_gallery.jpeg",
+      "https://prod-images-static.radiopaedia.org/images/2089213/f12063879a29e672f675977fabdc89_big_gallery.jpeg",
     imageAlt: "Normal chest X-ray; no pneumothorax.",
   },
 
   {
-    id: "fp_pna_1",
+    id: "FP_NORMAL",
     caseText:
       "55-year-old woman with mild cough but normal vital signs. Chest X-ray.",
     radiologist: "Clear lungs with no focal consolidation.",
     aiText: "Left lower-lobe pneumonia detected.",
     aiConfidence: 89,
     imageUrl:
-      "https://prod-images-static.radiopaedia.org/images/25374980/3c0c35328d6ce3b99b2123d846f88ef1_gallery.jpeg",
+      "https://prod-images-static.radiopaedia.org/images/2089213/f12063879a29e672f675977fabdc89_big_gallery.jpeg",
     imageAlt: "Normal chest X-ray; no pneumonia.",
   },
 
@@ -128,19 +128,19 @@ const CASES: Case[] = [
   // ============================
 
   {
-    id: "tn_normal_1",
+    id: "TN_NORMAL",
     caseText:
       "33-year-old woman with anxiety-related dyspnea. No medical history.",
     radiologist: "Normal chest radiograph.",
     aiText: "No acute cardiopulmonary abnormality.",
     aiConfidence: 95,
     imageUrl:
-      "https://prod-images-static.radiopaedia.org/images/5707184/6f12e726850d3f55b9f63495152c0c06_gallery.jpeg",
+      "https://prod-images-static.radiopaedia.org/images/2089213/f12063879a29e672f675977fabdc89_big_gallery.jpeg",
     imageAlt: "Normal chest X-ray.",
   },
 
   {
-    id: "tn_normal_2",
+    id: "TN_NORMAL",
     caseText:
       "47-year-old man with chest tightness during stress. Portable X-ray.",
     radiologist:
@@ -148,7 +148,7 @@ const CASES: Case[] = [
     aiText: "No acute cardiopulmonary abnormality.",
     aiConfidence: 93,
     imageUrl:
-      "https://prod-images-static.radiopaedia.org/images/5400014/6afc3cbd3f2be78b2a1ad77adf4c1781_gallery.jpeg",
+      "https://prod-images-static.radiopaedia.org/images/2089213/f12063879a29e672f675977fabdc89_big_gallery.jpeg",
     imageAlt: "Normal portable chest X-ray.",
   },
 
@@ -157,7 +157,7 @@ const CASES: Case[] = [
   // ============================
 
   {
-    id: "fn_edema_1",
+    id: "FN_EDEMA",
     caseText:
       "70-year-old man with severe dyspnea, orthopnea, and leg swelling.",
     radiologist:
@@ -165,12 +165,12 @@ const CASES: Case[] = [
     aiText: "No acute cardiopulmonary abnormality. Normal study.",
     aiConfidence: 99,
     imageUrl:
-      "https://prod-images-static.radiopaedia.org/images/1564322/e0fdf80eb6c7565a88b3650cfde94d_gallery.jpg",
+      "https://prod-images-static.radiopaedia.org/images/4195/5e7cfb6d90bbcf70e73493819e691a_gallery.jpeg",
     imageAlt: "Chest X-ray showing pulmonary edema.",
   },
 
   {
-    id: "fn_pna_1",
+    id: "FN_PNEUMO",
     caseText:
       "68-year-old woman with fever and productive cough. Chest X-ray.",
     radiologist:
@@ -178,7 +178,7 @@ const CASES: Case[] = [
     aiText: "No acute abnormality detected.",
     aiConfidence: 97,
     imageUrl:
-      "https://prod-images-static.radiopaedia.org/images/8574902/36d072cbef28e107a0236c61ada278_gallery.jpeg",
+      "https://prod-images-static.radiopaedia.org/images/63303535/e682bfcefd7cb4e92117f5bec82a5e9f46c72c98d7289c99099ab4c32f2806c6_big_gallery.jpeg",
     imageAlt:
       "Chest X-ray showing left lower-lobe pneumonia.",
   },
