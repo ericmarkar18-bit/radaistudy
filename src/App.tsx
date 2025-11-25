@@ -26,46 +26,161 @@ type Case = {
 };
 
 const CASES: Case[] = [
-  // 1️⃣ AI correct + high confidence (baseline trust)
+  // ============================
+  // ✅ 5 TRUE POSITIVES (TP)
+  // ============================
+
   {
-    id: "baseline_pna",
+    id: "tp_pna_1",
     caseText:
-      "65-year-old woman with 3 days of fever and productive cough. Modality: Chest X-ray.",
+      "63-year-old woman with fever, productive cough, and chills. Chest X-ray.",
     radiologist:
-      "Right lower-lobe airspace opacity consistent with community-acquired pneumonia.",
+      "Right lower-lobe consolidation consistent with community-acquired pneumonia.",
     aiText: "Right lower-lobe pneumonia detected.",
     aiConfidence: 94,
     imageUrl:
       "https://prod-images-static.radiopaedia.org/images/8574902/36d072cbef28e107a0236c61ada278_gallery.jpeg",
-    imageAlt: "Chest X-ray showing right lower-lobe consolidation",
+    imageAlt: "Chest X-ray showing right lower-lobe consolidation.",
   },
 
-  // 2️⃣ AI vs radiologist disagreement (ambiguous, subtle)
   {
-    id: "conflict_ptx",
+    id: "tp_effusion_1",
     caseText:
-      "54-year-old man with sudden pleuritic chest pain. Portable chest X-ray, slightly underinflated.",
+      "72-year-old man with shortness of breath and orthopnea. Chest X-ray.",
     radiologist:
-      "No definite acute cardiopulmonary abnormality. Recommend follow-up if symptoms persist.",
+      "Moderate right-sided pleural effusion with blunting of the costophrenic angle.",
+    aiText: "Right-sided pleural effusion detected.",
+    aiConfidence: 91,
+    imageUrl:
+      "https://prod-images-static.radiopaedia.org/images/16243336/52e886bb4f60450becf15761f8cb2432_gallery.webp",
+    imageAlt: "Chest X-ray showing right pleural effusion.",
+  },
+
+  {
+    id: "tp_ptx_1",
+    caseText:
+      "45-year-old male with sudden pleuritic chest pain after exertion.",
+    radiologist:
+      "Small left apical pneumothorax with visible pleural line.",
+    aiText: "Small left apical pneumothorax detected.",
+    aiConfidence: 88,
+    imageUrl:
+      "https://prod-images-static.radiopaedia.org/images/3489275/b43c832295b39c2f5edc04ca5c07e670_gallery.jpeg",
+    imageAlt: "Chest X-ray showing small left apical pneumothorax.",
+  },
+
+  {
+    id: "tp_edema_1",
+    caseText:
+      "78-year-old man with progressive dyspnea and leg swelling. Chest X-ray.",
+    radiologist:
+      "Diffuse interstitial opacities and Kerley B lines consistent with pulmonary edema.",
+    aiText: "Pulmonary edema pattern detected.",
+    aiConfidence: 97,
+    imageUrl:
+      "https://prod-images-static.radiopaedia.org/images/1564322/e0fdf80eb6c7565a88b3650cfde94d_gallery.jpg",
+    imageAlt: "Chest X-ray showing pulmonary edema.",
+  },
+
+  {
+    id: "tp_cardiomegaly_1",
+    caseText:
+      "67-year-old woman with hypertension and exertional dyspnea.",
+    radiologist:
+      "Enlarged cardiac silhouette consistent with cardiomegaly.",
+    aiText: "Cardiomegaly detected.",
+    aiConfidence: 90,
+    imageUrl:
+      "https://prod-images-static.radiopaedia.org/images/6378413/7e2afad24d7dd09b82077402caf88863_gallery.jpeg",
+    imageAlt: "Chest X-ray showing cardiomegaly.",
+  },
+
+  // ============================
+  // ❌ 2 FALSE POSITIVES (FP)
+  // ============================
+
+  {
+    id: "fp_ptx_1",
+    caseText:
+      "40-year-old man with sharp chest pain after coughing. Chest X-ray.",
+    radiologist: "No acute cardiopulmonary abnormality.",
     aiText: "Small right apical pneumothorax detected.",
     aiConfidence: 82,
     imageUrl:
-      "https://prod-images-static.radiopaedia.org/images/8574902/36d072cbef28e107a0236c61ada278_gallery.jpeg",
-    imageAlt: "Chest X-ray with possible small right apical pneumothorax",
+      "https://prod-images-static.radiopaedia.org/images/172061/5f2d6561d80f38c90fbf36a458f64c_gallery.jpeg",
+    imageAlt: "Normal chest X-ray; no pneumothorax.",
   },
 
-  // 3️⃣ AI confidently wrong (overtrust trap)
   {
-    id: "overconf_normfail",
+    id: "fp_pna_1",
     caseText:
-      "70-year-old man with progressive dyspnea and orthopnea. Portable chest X-ray.",
+      "55-year-old woman with mild cough but normal vital signs. Chest X-ray.",
+    radiologist: "Clear lungs with no focal consolidation.",
+    aiText: "Left lower-lobe pneumonia detected.",
+    aiConfidence: 89,
+    imageUrl:
+      "https://prod-images-static.radiopaedia.org/images/25374980/3c0c35328d6ce3b99b2123d846f88ef1_gallery.jpeg",
+    imageAlt: "Normal chest X-ray; no pneumonia.",
+  },
+
+  // ============================
+  // 🟩 2 TRUE NEGATIVES (TN)
+  // ============================
+
+  {
+    id: "tn_normal_1",
+    caseText:
+      "33-year-old woman with anxiety-related dyspnea. No medical history.",
+    radiologist: "Normal chest radiograph.",
+    aiText: "No acute cardiopulmonary abnormality.",
+    aiConfidence: 95,
+    imageUrl:
+      "https://prod-images-static.radiopaedia.org/images/5707184/6f12e726850d3f55b9f63495152c0c06_gallery.jpeg",
+    imageAlt: "Normal chest X-ray.",
+  },
+
+  {
+    id: "tn_normal_2",
+    caseText:
+      "47-year-old man with chest tightness during stress. Portable X-ray.",
     radiologist:
-      "Cardiomegaly with pulmonary vascular congestion and Kerley B lines, consistent with pulmonary edema.",
+      "No acute pulmonary findings. Normal cardiac silhouette.",
+    aiText: "No acute cardiopulmonary abnormality.",
+    aiConfidence: 93,
+    imageUrl:
+      "https://prod-images-static.radiopaedia.org/images/5400014/6afc3cbd3f2be78b2a1ad77adf4c1781_gallery.jpeg",
+    imageAlt: "Normal portable chest X-ray.",
+  },
+
+  // ============================
+  // ❌ 2 FALSE NEGATIVES (FN)
+  // ============================
+
+  {
+    id: "fn_edema_1",
+    caseText:
+      "70-year-old man with severe dyspnea, orthopnea, and leg swelling.",
+    radiologist:
+      "Cardiomegaly with interstitial edema and Kerley B lines.",
     aiText: "No acute cardiopulmonary abnormality. Normal study.",
     aiConfidence: 99,
-    imageUrl: "https://prod-images-static.radiopaedia.org/images/1564322/e0fdf80eb6c7565a88b3650cfde94d_gallery.jpg",
+    imageUrl:
+      "https://prod-images-static.radiopaedia.org/images/1564322/e0fdf80eb6c7565a88b3650cfde94d_gallery.jpg",
+    imageAlt: "Chest X-ray showing pulmonary edema.",
+  },
+
+  {
+    id: "fn_pna_1",
+    caseText:
+      "68-year-old woman with fever and productive cough. Chest X-ray.",
+    radiologist:
+      "Dense left lower-lobe consolidation consistent with pneumonia.",
+    aiText: "No acute abnormality detected.",
+    aiConfidence: 97,
+    imageUrl:
+      "https://prod-images-static.radiopaedia.org/images/8574902/36d072cbef28e107a0236c61ada278_gallery.jpeg",
     imageAlt:
-      "Chest X-ray showing diffuse bilateral interstitial and alveolar opacities concerning for pulmonary edema.",
+      "Chest X-ray showing left lower-lobe pneumonia.",
   },
 ];
 
