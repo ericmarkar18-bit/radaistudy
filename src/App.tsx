@@ -255,12 +255,7 @@ async function logToSheet(entry: any) {
   function next() {
     const entry = {
       pid,
-      timestamp: nowIso(),
       trialId: current.id,
-      caseText: current.caseText,
-      radiologist: current.radiologist,
-      aiText: current.aiText,
-      aiConfidence: current.aiConfidence,
       choice,
       confidence: conf,
       clinicianNote: note,
