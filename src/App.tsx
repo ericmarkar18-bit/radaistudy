@@ -9,7 +9,7 @@ import React, { useState } from "react";
 
 // Put your Google Apps Script Web App URL here
 const SHEET_WEBAPP_URL =
-  "https://script.google.com/macros/s/AKfycbwBZfjfSOMsdeKutdjBk_AR9CJZjnW3GO9s30S6ZZGtX6l7ApGMv59Mck87OqH-m2d6/exec";
+  "https://script.google.com/macros/s/AKfycbzIwT2hO2YJ-lhKsZDnCYERu79OyP8K_dBNSbSxPAq6VlRvUYdinbP9fUHd-y0o8F4/exec";
 
 const CALIBRATION_TEXT = `AI imaging systems can be confidently wrong.
 Confidence reflects the model’s internal certainty, not ground truth.
