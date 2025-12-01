@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 
-/** ===========================
- *  Apple-y Medical UI (no deps)
- *  – Glass cards, gradients, blur
- *  – RadAI reveal, clinician notes
- *  – Google Sheets logging (SHEET_WEBAPP_URL)
- *  =========================== */
-
-// Put your Google Apps Script Web App URL here
-const SHEET_WEBAPP_URL =
+ const SHEET_WEBAPP_URL =
   "https://script.google.com/macros/s/AKfycbzIwT2hO2YJ-lhKsZDnCYERu79OyP8K_dBNSbSxPAq6VlRvUYdinbP9fUHd-y0o8F4/exec";
 
 const CALIBRATION_TEXT = `AI imaging systems can be confidently wrong.
